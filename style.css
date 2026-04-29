@@ -1,0 +1,309 @@
+/* Базові налаштування */
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f6f8;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+h2 { margin-top: 0; font-size: 1.25rem; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+h3 { margin: 0 0 10px 0; font-size: 1rem; font-weight: 600; color: #334155; }
+p { margin: 0; }
+ul { list-style: none; padding: 0; margin: 0; }
+.text-muted { color: #64748b; }
+.text-small { font-size: 0.85rem; }
+.mt-10 { margin-top: 10px; }
+
+/* Хедер */
+.top-header {
+    background-color: #ffffff;
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover { background-color: #f1f5f9; color: #0f172a; }
+.nav-btn.active { background-color: #e2e8f0; color: #0f172a; font-weight: 600; }
+
+/* Основна сітка сайту */
+/* Основна сітка сайту */
+.dashboard-grid {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    /* 2fr означає, що ліва колонка вдвічі ширша за праву (1fr) */
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px;
+}
+
+/* Видаліть .grid-column з вашого CSS, він більше не потрібен! */
+
+/* Робимо блок Історії на всю ширину */
+#history {
+    grid-column: 1 / -1; /* Це каже блоку зайняти всі колонки від першої до останньої */
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Картки */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+/* Статуси та кольори */
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.status-green { background-color: #dcfce7; color: #166534; }
+.highlight { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+
+/* Кольори тексту статусу */
+.status-text { font-weight: 500; }
+.status-text.green { color: #10b981; }
+.status-text.orange { color: #f59e0b; }
+.status-text.red-light { color: #f43f5e; }
+.status-text.red { color: #e11d48; }
+
+/* Рівні заповненості */
+.occupancy-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.occupancy-list li:last-child { border-bottom: none; }
+.level-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.level-0 { background: #f1f5f9; color: #475569; }
+.level-1 { background: #dcfce7; color: #166534; }
+.level-2-3 { background: #fef3c7; color: #b45309; }
+.level-4-5 { background: #ffe4e6; color: #be123c; }
+.level-6 { background: #e11d48; color: #ffffff; }
+
+/* Notify Me */
+.notify-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Змінюємо фон на світло-зелений та рамку */
+    background-color: #dcfce7; 
+    border: 1px solid #bbf7d0;
+}
+
+/* Робимо заголовок темно-зеленим */
+.notify-card h3 {
+    color: #166534; 
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Відступ між іконкою дзвіночка і текстом */
+}
+
+/* Робимо підзаголовок трохи світлішим зеленим замість сірого */
+.notify-card .text-muted {
+    color: #15803d;
+}
+
+/* Стилізуємо круглу кнопку зі стрілочкою під зелений дизайн */
+.arrow-btn {
+    background: #bbf7d0; /* Темніший зелений для кнопки */
+    color: #166534;      /* Колір стрілочки */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.arrow-btn:hover { 
+    background: #86efac; /* Колір при наведенні */
+}
+
+/* Розклади та Історія */
+/* Історія залишається з розкиданими по краях елементами */
+.history-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Busy Times: вирівнюємо все по лівому краю */
+.timeline-list li {
+    display: flex;
+    justify-content: flex-start; /* Притискає все вліво */
+    align-items: center; /* Рівняє по центру по вертикалі */
+    gap: 8px; /* Робить акуратний відступ між кружечком, часом і статусом */
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem; 
+    font-weight: 600; /* Робить текст трохи жирнішим, як на вашому макеті */
+}
+
+/* Прибираємо лінію під останнім елементом списку */
+.timeline-list li:last-child, .history-list li:last-child {
+    border-bottom: none;
+}
+
+.time-slot, .time { font-weight: 500; color: #475569; }
+.history-day { margin-top: 20px; margin-bottom: 5px; font-size: 0.95rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;}
+
+.btn-text {
+    display: inline-block;
+    margin-top: 20px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+.btn-text:hover { text-decoration: underline; }
+
+/* Футер / How it works */
+.bottom-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 50px 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.footer-list li {
+    padding: 6px 0;
+    color: #475569;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 15px;
+}
+.footer-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #94a3b8;
+}
+
+/* Адаптивність для менших екранів */
+@media (max-width: 768px) {
+    .dashboard-grid, .footer-grid { grid-template-columns: 1fr; }
+    .top-header { padding: 0 20px; flex-direction: column; height: auto; padding-top: 15px; padding-bottom: 15px; gap: 15px;}
+}
+
+/* -------------------------------------
+   ВИПАДАЮЧІ МЕНЮ (POPUP) ДЛЯ ХЕДЕРА
+---------------------------------------- */
+.popup-menu {
+    position: fixed;
+    top: 70px; /* З'являється одразу під хедером */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    padding: 8px 0;
+    width: 200px;
+    z-index: 999;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Позиціювання під відповідними кнопками */
+#settingsMenu { right: 130px; }
+#profileMenu { right: 40px; }
+
+/* Прихований стан */
+.popup-menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px); /* Легкий ефект виїзду зверху */
+}
+
+.popup-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.popup-menu li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.popup-menu li:hover { 
+    background-color: #f1f5f9; 
+    color: #0f172a; 
+}

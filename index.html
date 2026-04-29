@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Kitchen Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+
+    <header class="top-header">
+        <div class="logo">
+            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">soup_kitchen</span> Kitchen Status</h2>
+        </div>
+        <nav class="top-nav">
+            <a href="#top" class="nav-btn active" id="navHome">
+                <span class="material-icons-outlined">home</span> Home
+            </a>
+            <a href="#history" class="nav-btn" id="navHistory">
+                <span class="material-icons-outlined">schedule</span> History
+            </a>
+            <button class="nav-btn" id="navSettings">
+                <span class="material-icons-outlined">settings</span> Settings
+            </button>
+            <button class="nav-btn" id="navProfile">
+                <span class="material-icons-outlined">person_outline</span> Profil
+            </button>
+        </nav>
+        <div id="settingsMenu" class="popup-menu hidden">
+        <ul>
+            <li>Change Theme</li>
+            <li>Sensor Settings</li>
+            <li>Notifications</li>
+        </ul>
+    </div>
+        <div id="profileMenu" class="popup-menu hidden">
+            <ul>
+                <li>My Account</li>
+                <li>Statistics</li>
+                <li>Logout</li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="dashboard-grid">
+        
+        <section class="card" id="status">
+            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">star_outline</span> Kitchen Status</h2>
+            <div class="status-badge status-green">Comfortable</div>
+            <div class="status-details">
+                <p class="highlight"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">person_outline</span> 1 Person in kitchen</p>
+                <p class="text-muted"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">groups</span> Capacity: 6 people</p>
+                <p class="text-small text-muted mt-10"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 16px;">schedule</span> Last updated: 1 min ago</p>
+            </div>
+        </section>
+
+        <section class="card" id="occupancy">
+            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">groups</span> Occupancy Levels</h2>
+            <ul class="occupancy-list">
+                <li><span class="material-icons-outlined" style="color: #4CAF50; font-size: 18px;">star</span> <span class="text-small">0: Empty</span></li>
+                <li><span class="material-icons-outlined" style="color: #8BC34A; font-size: 18px;">star_border</span> <span class="text-small">1: Comfortable</span></li>
+                <li><span class="material-icons-outlined" style="color: #FFC107; font-size: 18px;">circle</span> <span class="text-small">2-3: Crowded</span></li>
+                <li><span class="material-icons-outlined" style="color: #FF9800; font-size: 18px;">circle</span> <span class="text-small">4-5: Overcrowded</span></li>
+                <li><span class="material-icons-outlined" style="color: #F44336; font-size: 18px;">change_history</span> <span class="text-small">6+: Full</span></li>
+            </ul>
+        </section>
+
+       <section class="card" id="busy-times">
+            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px; color: #8d6e63;">bolt</span> Busy Times (estimated)</h2>
+            <ul class="timeline-list">
+                <li>
+                    <span class="material-icons-outlined" style="color: #FFC107; font-size: 16px;">lens</span>
+                    <span class="time-slot">12:00 - 14:00:</span> 
+                    <span>Crowded</span>
+                </li>
+                <li>
+                    <span class="material-icons-outlined" style="color: #F44336; font-size: 16px;">lens</span>
+                    <span class="time-slot">19:00 - 20:00:</span> 
+                    <span>Full</span>
+                </li>
+                <li>
+                    <span class="material-icons-outlined" style="color: #4CAF50; font-size: 16px;">lens</span>
+                    <span class="time-slot">21:00 - 23:00:</span> 
+                    <span>Empty</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card notify-card" id="notify">
+            <div class="notify-info">
+                <h3><span class="material-icons-outlined">notifications_none</span> Notify me</h3>
+                <p>when the kitchen is full</p>
+            </div>
+            <button id="notifyBtn" class="arrow-btn">→</button>
+        </section>
+
+<section class="card" id="history">
+    <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">schedule</span> History</h2>
+    
+    <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Today</h3>
+    <ul class="timeline-list">
+        <li>
+            <span class="material-icons-outlined" style="color: #10b981; font-size: 22px;">star_border</span> 
+            <span style="font-weight: 600; color: #000; width: 65px;">10:15</span> 
+            <span style="font-weight: 600; color: #10b981;">Comfortable</span>
+        </li>
+        <li>
+            <span class="material-icons-outlined" style="color: #f43f5e; font-size: 22px;">radio_button_unchecked</span> 
+            <span style="font-weight: 600; color: #000; width: 65px;">12:30</span> 
+            <span style="font-weight: 600; color: #f43f5e;">Overcrowded</span>
+        </li>
+        <li>
+            <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+            <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
+            <span style="font-weight: 600; color: #e11d48;">Full</span>
+        </li>
+        <li>
+            <span class="material-icons-outlined" style="color: #f59e0b; font-size: 22px;">radio_button_unchecked</span> 
+            <span style="font-weight: 600; color: #000; width: 65px;">22:10</span> 
+            <span style="font-weight: 600; color: #f59e0b;">Crowded</span>
+        </li>
+    </ul>
+
+    <div id="olderHistory" style="display: none;">
+        
+        <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Yesterday</h3>
+        <ul class="timeline-list">
+            <li>
+                <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+                <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
+                <span style="font-weight: 600; color: #e11d48;">Full</span>
+            </li>
+            <li>
+                <span class="material-icons-outlined" style="color: #10b981; font-size: 22px;">star_border</span> 
+                <span style="font-weight: 600; color: #000; width: 65px;">21:15</span> 
+                <span style="font-weight: 600; color: #10b981;">Comfortable</span>
+            </li>
+            <li>
+                <span class="material-icons-outlined" style="color: #f43f5e; font-size: 22px;">radio_button_unchecked</span> 
+                <span style="font-weight: 600; color: #000; width: 65px;">23:30</span> 
+                <span style="font-weight: 600; color: #f43f5e;">Overcrowded</span>
+            </li>
+        </ul>
+
+        <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Two days ago</h3>
+        <ul class="timeline-list">
+            <li>
+                <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+                <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
+                <span style="font-weight: 600; color: #e11d48;">Full</span>
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px solid #f1f5f9; padding-top: 15px;">
+        <a href="#" id="toggleHistoryBtn" style="color: #2563eb; text-decoration: none; font-weight: 700; font-size: 1rem; display: flex; align-items: center; width: fit-content;">
+            <span id="toggleText">Mehr Anzeigen</span> 
+            <span id="toggleIcon" class="material-icons-outlined" style="margin-left: 5px; font-weight: bold;">expand_more</span>
+        </a>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="bottom-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">error_outline</span> How it works</h2>
+                <div class="footer-grid">
+                    <div>
+                        <h3>Smart Detection System</h3>
+                        <ul class="footer-list">
+                            <li>Sensors detect movement in the kitchen</li>
+                            <li>Shelf sensors track shared items usage</li>
+                            <li>Data updates every 30 seconds</li>
+                            <li><b>No cameras</b> are used</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Privacy</h3>
+                        <ul class="footer-list">
+                            <li><b>No personal identification</b></li>
+                            <li><b>No tracking of individuals</b></li>
+                            <li><b>Only anonymous</b> occupancy data</li>
+                            <li>No data is stored long-term</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
