@@ -1,4 +1,4 @@
-/* Базові налаштування */
+/* Base settings */
 html { scroll-behavior: smooth; }
 body {
     margin: 0;
@@ -9,7 +9,7 @@ body {
     line-height: 1.5;
 }
 
-h2 { margin-top: 0; font-size: 1.25rem; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+h2 { margin-top: 0; font-size: 1.25rem; font-weight: 600; color: #0f172a; }
 h3 { margin: 0 0 10px 0; font-size: 1rem; font-weight: 600; color: #334155; }
 p { margin: 0; }
 ul { list-style: none; padding: 0; margin: 0; }
@@ -17,7 +17,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .text-small { font-size: 0.85rem; }
 .mt-10 { margin-top: 10px; }
 
-/* Хедер */
+/* Header */
 .top-header {
     background-color: #ffffff;
     padding: 0 40px;
@@ -31,13 +31,15 @@ ul { list-style: none; padding: 0; margin: 0; }
     z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #0f172a;
+.logo h2 {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: center; 
+    gap: 8px;            
+    margin: 0;           
+}
+
+.logo h2 .material-icons-outlined {
+    font-size: 32px; 
 }
 
 .top-nav {
@@ -64,23 +66,23 @@ ul { list-style: none; padding: 0; margin: 0; }
 .nav-btn:hover { background-color: #f1f5f9; color: #0f172a; }
 .nav-btn.active { background-color: #e2e8f0; color: #0f172a; font-weight: 600; }
 
-/* Основна сітка сайту */
-/* Основна сітка сайту */
+/* Main site grid */
+/* Main site grid */
 .dashboard-grid {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
     display: grid;
-    /* 2fr означає, що ліва колонка вдвічі ширша за праву (1fr) */
+    /* 2fr means the left column is twice as wide as the right one (1fr) */
     grid-template-columns: 2fr 1fr; 
     gap: 20px;
 }
 
-/* Видаліть .grid-column з вашого CSS, він більше не потрібен! */
+/* Remove .grid-column from your CSS, it is no longer needed! */
 
-/* Робимо блок Історії на всю ширину */
+/* Make the History block full width */
 #history {
-    grid-column: 1 / -1; /* Це каже блоку зайняти всі колонки від першої до останньої */
+    grid-column: 1 / -1; /* This tells the block to span all columns from first to last */
 }
 
 .grid-column {
@@ -89,7 +91,7 @@ ul { list-style: none; padding: 0; margin: 0; }
     gap: 30px;
 }
 
-/* Картки */
+/* Cards */
 .card {
     background: #ffffff;
     border-radius: 12px;
@@ -97,7 +99,142 @@ ul { list-style: none; padding: 0; margin: 0; }
     box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
-/* Статуси та кольори */
+/* --- Макет картки статусу (дві колонки) --- */
+.status-layout {
+    display: flex;
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    gap: 40px; /* Відстань між великим колом та текстом */
+}
+
+/* Велика іконка в колі зліва */
+.status-icon-large {
+    width: 130px;
+    height: 130px;
+    background-color: #dbead5; /* Світло-зелений фон кола */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Забороняємо колу стискатися */
+}
+.status-icon-large .material-icons-outlined {
+    font-size: 70px; /* Розмір великої зірки */
+    color: #4b803f; /* Темніший зелений для іконки */
+}
+
+/* Заголовок Kitchen Status */
+.status-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    border-bottom: none; /* Гарантовано без лінії знизу */
+}
+
+/* Рядок зі статусом (зірочка + Comfortable) */
+.status-current {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px; /* Відступ до списку */
+}
+.status-current.green {
+    color: #2e7d32; /* Темно-зелений колір тексту і зірочки */
+}
+.status-current .material-icons-outlined {
+    font-size: 30px; /* Розмір маленької зірочки біля статусу */
+}
+
+/* Список деталей (люди, місткість, час) */
+.status-details-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Окремий рядок списку з нижньою лінією */
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0; /* Світла лінія-розділювач */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Прибираємо лінію для останнього елемента і робимо текст сірішим */
+.detail-row.no-border {
+    border-bottom: none;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.detail-row .material-icons-outlined {
+    color: #64748b;
+    font-size: 22px;
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Основна сітка сайту стає в одну колонку */
+    .dashboard-grid, .footer-grid { 
+        grid-template-columns: 1fr; 
+        margin-top: 20px; /* Зменшуємо відступ зверху на телефонах */
+    }
+    
+    /* 2. Хедер: робимо його гумовим і дозволяємо кнопкам переноситись */
+    .top-header { 
+        padding: 15px 20px; 
+        flex-direction: column; 
+        height: auto; 
+        gap: 15px;
+    }
+    .top-nav {
+        flex-wrap: wrap; /* Дозволяє кнопкам падати на новий рядок, якщо не влазять */
+        justify-content: center;
+    }
+
+    /* 3. Випадаючі меню: коригуємо позицію, бо хедер став вищим */
+    .popup-menu {
+        top: 120px; /* Опускаємо нижче */
+        right: 50%; /* Зсуваємо на центр */
+        transform: translateX(50%) translateY(0); /* Центруємо рівно по центру екрану */
+        width: 90%; /* Робимо меню ширшим на телефоні */
+        max-width: 300px;
+    }
+    .popup-menu.hidden {
+        transform: translateX(50%) translateY(-10px);
+    }
+
+    /* 4. Картка статусу (нова): центруємо контент і трохи зменшуємо */
+    .status-layout {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+        gap: 20px;
+    }
+    .status-icon-large {
+        width: 100px;  /* Трохи зменшуємо велике коло */
+        height: 100px;
+    }
+    .status-icon-large .material-icons-outlined {
+        font-size: 50px;
+    }
+    .status-title {
+        font-size: 1.5rem; /* Зменшуємо заголовок */
+    }
+    .status-current, .detail-row {
+        justify-content: center; /* Центруємо списки і статус */
+    }
+}
+
+/* Statuses and colors */
 .status-badge {
     display: inline-block;
     padding: 6px 14px;
@@ -109,14 +246,14 @@ ul { list-style: none; padding: 0; margin: 0; }
 .status-green { background-color: #dcfce7; color: #166534; }
 .highlight { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
 
-/* Кольори тексту статусу */
+/* Status text colors */
 .status-text { font-weight: 500; }
 .status-text.green { color: #10b981; }
 .status-text.orange { color: #f59e0b; }
 .status-text.red-light { color: #f43f5e; }
 .status-text.red { color: #e11d48; }
 
-/* Рівні заповненості */
+/* Occupancy levels */
 .occupancy-list li {
     display: flex;
     align-items: center;
@@ -146,28 +283,28 @@ ul { list-style: none; padding: 0; margin: 0; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Змінюємо фон на світло-зелений та рамку */
+    /* Change background to light green and add border */
     background-color: #dcfce7; 
     border: 1px solid #bbf7d0;
 }
 
-/* Робимо заголовок темно-зеленим */
+/* Make the title dark green */
 .notify-card h3 {
     color: #166534; 
     display: flex;
     align-items: center;
-    gap: 8px; /* Відступ між іконкою дзвіночка і текстом */
+    gap: 8px; /* Spacing between the bell icon and text */
 }
 
-/* Робимо підзаголовок трохи світлішим зеленим замість сірого */
+/* Make the subtitle a lighter green instead of gray */
 .notify-card .text-muted {
     color: #15803d;
 }
 
-/* Стилізуємо круглу кнопку зі стрілочкою під зелений дизайн */
+/* Style the round arrow button to match the green design */
 .arrow-btn {
-    background: #bbf7d0; /* Темніший зелений для кнопки */
-    color: #166534;      /* Колір стрілочки */
+    background: #bbf7d0; /* Darker green for the button */
+    color: #166534;      /* Arrow color */
     border: none;
     width: 40px;
     height: 40px;
@@ -178,11 +315,11 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .arrow-btn:hover { 
-    background: #86efac; /* Колір при наведенні */
+    background: #86efac; /* Hover color */
 }
 
-/* Розклади та Історія */
-/* Історія залишається з розкиданими по краях елементами */
+/* Schedules and History */
+/* History items remain spread to the edges */
 .history-list li {
     display: flex;
     justify-content: space-between;
@@ -190,19 +327,19 @@ ul { list-style: none; padding: 0; margin: 0; }
     border-bottom: 1px solid #f1f5f9;
 }
 
-/* Busy Times: вирівнюємо все по лівому краю */
+/* Busy Times: align everything to the left edge */
 .timeline-list li {
     display: flex;
-    justify-content: flex-start; /* Притискає все вліво */
-    align-items: center; /* Рівняє по центру по вертикалі */
-    gap: 8px; /* Робить акуратний відступ між кружечком, часом і статусом */
+    justify-content: flex-start; /* Pushes everything to the left */
+    align-items: center; /* Aligns vertically to the center */
+    gap: 8px; /* Creates neat spacing between the circle, time, and status */
     padding: 10px 0;
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.95rem; 
-    font-weight: 600; /* Робить текст трохи жирнішим, як на вашому макеті */
+    font-weight: 600; /* Makes the text slightly bolder, as in your mockup */
 }
 
-/* Прибираємо лінію під останнім елементом списку */
+/* Remove the line under the last list item */
 .timeline-list li:last-child, .history-list li:last-child {
     border-bottom: none;
 }
@@ -219,7 +356,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .btn-text:hover { text-decoration: underline; }
 
-/* Футер / How it works */
+/* Footer / How it works */
 .bottom-footer {
     background-color: #ffffff;
     border-top: 1px solid #e2e8f0;
@@ -253,18 +390,18 @@ ul { list-style: none; padding: 0; margin: 0; }
     color: #94a3b8;
 }
 
-/* Адаптивність для менших екранів */
+/* Responsiveness for smaller screens */
 @media (max-width: 768px) {
     .dashboard-grid, .footer-grid { grid-template-columns: 1fr; }
     .top-header { padding: 0 20px; flex-direction: column; height: auto; padding-top: 15px; padding-bottom: 15px; gap: 15px;}
 }
 
 /* -------------------------------------
-   ВИПАДАЮЧІ МЕНЮ (POPUP) ДЛЯ ХЕДЕРА
+   DROPDOWN MENUS (POPUP) FOR HEADER
 ---------------------------------------- */
 .popup-menu {
     position: fixed;
-    top: 70px; /* З'являється одразу під хедером */
+    top: 70px; /* Comes up right under the header */
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -277,15 +414,15 @@ ul { list-style: none; padding: 0; margin: 0; }
     transform: translateY(0);
 }
 
-/* Позиціювання під відповідними кнопками */
+/* Positioning under the respective buttons */
 #settingsMenu { right: 130px; }
 #profileMenu { right: 40px; }
 
-/* Прихований стан */
+/* Hidden state */
 .popup-menu.hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px); /* Легкий ефект виїзду зверху */
+    transform: translateY(-10px); /* Light slide-in effect from the top */
 }
 
 .popup-menu ul {

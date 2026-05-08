@@ -12,7 +12,7 @@
 
     <header class="top-header">
         <div class="logo">
-            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">soup_kitchen</span> Kitchen Status</h2>
+            <h2><span class="material-icons-outlined">soup_kitchen</span> Kitchen Status</h2>
         </div>
         <nav class="top-nav">
             <a href="#top" class="nav-btn active" id="navHome">
@@ -47,12 +47,33 @@
     <main class="dashboard-grid">
         
         <section class="card" id="status">
-            <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">star_outline</span> Kitchen Status</h2>
-            <div class="status-badge status-green">Comfortable</div>
-            <div class="status-details">
-                <p class="highlight"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">person_outline</span> 1 Person in kitchen</p>
-                <p class="text-muted"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">groups</span> Capacity: 6 people</p>
-                <p class="text-small text-muted mt-10"><span class="material-icons-outlined" style="vertical-align: middle; font-size: 16px;">schedule</span> Last updated: 1 min ago</p>
+            <div class="status-layout">
+                
+                <div class="status-icon-large">
+                    <span class="material-icons-outlined">star_outline</span>
+                </div>
+
+                <div class="status-content">
+                    <h2 class="status-title">Kitchen Status</h2>
+                    
+                    <div class="status-current green">
+                        <span class="material-icons-outlined">star_outline</span>
+                        Comfortable
+                    </div>
+                    
+                    <div class="status-details-list">
+                        <div class="detail-row">
+                            <span class="material-icons-outlined">person_outline</span> 1 Person in kitchen
+                        </div>
+                        <div class="detail-row">
+                            <span class="material-icons-outlined">groups</span> Capacity: 6 people
+                        </div>
+                        <div class="detail-row no-border">
+                            <span class="material-icons-outlined">schedule</span> Last updated: 1 min ago
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -76,12 +97,12 @@
                     <span>Crowded</span>
                 </li>
                 <li>
-                    <span class="material-icons-outlined" style="color: #F44336; font-size: 16px;">lens</span>
+                    <span class="material-icons-outlined" style="color: #F44336; font-size: 16px;">change_history</span>
                     <span class="time-slot">19:00 - 20:00:</span> 
                     <span>Full</span>
                 </li>
                 <li>
-                    <span class="material-icons-outlined" style="color: #4CAF50; font-size: 16px;">lens</span>
+                    <span class="material-icons-outlined" style="color: #4CAF50; font-size: 16px;">star</span>
                     <span class="time-slot">21:00 - 23:00:</span> 
                     <span>Empty</span>
                 </li>

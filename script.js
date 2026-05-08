@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Логіка випадаючих меню (Settings та Profile)
+    // 1. Dropdown menus logic (Settings and Profile)
     const btnSettings = document.getElementById('navSettings');
     const btnProfile = document.getElementById('navProfile');
     const menuSettings = document.getElementById('settingsMenu');
     const menuProfile = document.getElementById('profileMenu');
 
-    // Функція для закриття всіх меню
+    // Function to close all menus
     function closeAllMenus() {
         menuSettings.classList.add('hidden');
         menuProfile.classList.add('hidden');
     }
 
     btnSettings.addEventListener('click', (e) => {
-        e.stopPropagation(); // Запобігає закриттю меню одразу після відкриття
+        e.stopPropagation(); // Prevents the menu from closing immediately after opening
         const isHidden = menuSettings.classList.contains('hidden');
         closeAllMenus();
         if (isHidden) menuSettings.classList.remove('hidden');
@@ -26,37 +26,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isHidden) menuProfile.classList.remove('hidden');
     });
 
-    // Закриття меню при кліку в будь-якому іншому місці екрану
+    // Close menus when clicking anywhere else on the screen
     document.addEventListener('click', () => {
         closeAllMenus();
     });
 
-    // Заборона закриття меню при кліку всередині самого меню
+    // Prevent closing when clicking inside the menu itself
     menuSettings.addEventListener('click', (e) => e.stopPropagation());
     menuProfile.addEventListener('click', (e) => e.stopPropagation());
 
 
-    // 2. Логіка запиту на Push-сповіщення (Notify me)
+    // 2. Push notification request logic (Notify me)
     const notifyBtn = document.getElementById('notifyBtn');
     
     notifyBtn.addEventListener('click', () => {
-        // Перевіряємо чи підтримує браузер сповіщення
+        // Check if the browser supports notifications
         if (!("Notification" in window)) {
             alert("На жаль, ваш браузер не підтримує веб-сповіщення.");
             return;
         }
 
-        // Перевіряємо поточний статус дозволу
+        // Check current permission status
         if (Notification.permission === "granted") {
             alert("Ви вже надали дозвіл! Ми повідомимо вас, коли кухня буде повною.");
         } else if (Notification.permission !== "denied") {
-            // Запитуємо дозвіл у користувача
+            // Request permission from the user
             Notification.requestPermission().then((permission) => {
                 if (permission === "granted") {
-                    // Якщо користувач дозволив, створюємо тестове сповіщення
+                    // If the user granted permission, create a test notification
                     new Notification("Smart Kitchen", {
                         body: "Сповіщення успішно налаштовані! Ви дізнаєтесь, коли кухня звільниться.",
-                        icon: "https://cdn-icons-png.flaticon.com/512/3565/3565418.png" // Іконка дзвіночка
+                        icon: "https://cdn-icons-png.flaticon.com/512/3565/3565418.png" // Bell icon
                     });
                     notifyBtn.textContent = "Увімкнено ✓";
                     notifyBtn.style.backgroundColor = "#d1e8d4";
@@ -69,18 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Візуальне перемикання "активної" кнопки навігації
+    // 3. Visual toggling of the "active" navigation button
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
-            // Знімаємо клас active з усіх
+            // Remove the active class from all
             navItems.forEach(nav => nav.classList.remove('active'));
-            // Додаємо тому, на який клікнули
+            // Add to the clicked one
             this.classList.add('active');
         });
     });
 
-    // 4. Логіка розгортання історії (Mehr Anzeigen)
+    // 4. History expansion logic (Mehr Anzeigen)
     const toggleHistoryBtn = document.getElementById('toggleHistoryBtn');
     const olderHistory = document.getElementById('olderHistory');
     const toggleText = document.getElementById('toggleText');
@@ -88,18 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggleHistoryBtn && olderHistory) {
         toggleHistoryBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Зупиняє браузер від стрибка нагору при кліку на посилання
+            e.preventDefault(); // Prevents the browser from jumping to the top when clicking the link
             
             if (olderHistory.style.display === 'none') {
-                // Якщо було приховано - показуємо
+                // If it was hidden - show it
                 olderHistory.style.display = 'block';
-                toggleText.textContent = 'Weniger Anzeigen'; // Міняємо текст на "Показати менше"
-                toggleIcon.textContent = 'expand_less';      // Міняємо стрілочку догори
+                toggleText.textContent = 'Weniger Anzeigen'; // Change text to "Show less"
+                toggleIcon.textContent = 'expand_less';      // Change arrow pointing up
             } else {
-                // Якщо було відкрито - ховаємо
+                // If it was open - hide it
                 olderHistory.style.display = 'none';
-                toggleText.textContent = 'Mehr Anzeigen';    // Повертаємо текст "Показати більше"
-                toggleIcon.textContent = 'expand_more';      // Повертаємо стрілочку донизу
+                toggleText.textContent = 'Mehr Anzeigen';    // Return text to "Show more"
+                toggleIcon.textContent = 'expand_more';      // Return arrow pointing down
             }
         });
     }
