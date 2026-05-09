@@ -50,14 +50,14 @@
             <div class="status-layout">
                 
                 <div class="status-icon-large">
-                    <span class="material-icons-outlined">star_outline</span>
+                    <span class="material-icons-outlined">star_border</span>
                 </div>
 
                 <div class="status-content">
                     <h2 class="status-title">Kitchen Status</h2>
                     
-                    <div class="status-current green">
-                        <span class="material-icons-outlined">star_outline</span>
+                    <div class="status-current st-comfortable">
+                        <span class="status-icon st-comfortable" style="font-size: 30px;"></span>
                         Comfortable
                     </div>
                     
@@ -80,11 +80,11 @@
         <section class="card" id="occupancy">
             <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px;">groups</span> Occupancy Levels</h2>
             <ul class="occupancy-list">
-                <li><span class="material-icons-outlined" style="color: #4CAF50; font-size: 18px;">star</span> <span class="text-small">0: Empty</span></li>
-                <li><span class="material-icons-outlined" style="color: #8BC34A; font-size: 18px;">star_border</span> <span class="text-small">1: Comfortable</span></li>
-                <li><span class="material-icons-outlined" style="color: #FFC107; font-size: 18px;">circle</span> <span class="text-small">2-3: Crowded</span></li>
-                <li><span class="material-icons-outlined" style="color: #FF9800; font-size: 18px;">circle</span> <span class="text-small">4-5: Overcrowded</span></li>
-                <li><span class="material-icons-outlined" style="color: #F44336; font-size: 18px;">change_history</span> <span class="text-small">6+: Full</span></li>
+                <li><span class="status-icon st-empty" style="font-size: 18px;"></span> <span class="text-small">0: Empty</span></li>
+                <li><span class="status-icon st-comfortable" style="font-size: 18px;"></span> <span class="text-small">1: Comfortable</span></li>
+                <li><span class="status-icon st-crowded" style="font-size: 18px;"></span> <span class="text-small">2-3: Crowded</span></li>
+                <li><span class="status-icon st-overcrowded" style="font-size: 18px;"></span> <span class="text-small">4-5: Overcrowded</span></li>
+                <li><span class="status-icon st-full" style="font-size: 18px;"></span> <span class="text-small">6+: Full</span></li>
             </ul>
         </section>
 
@@ -92,17 +92,17 @@
             <h2><span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px; color: #8d6e63;">bolt</span> Busy Times (estimated)</h2>
             <ul class="timeline-list">
                 <li>
-                    <span class="material-icons-outlined" style="color: #FFC107; font-size: 16px;">lens</span>
+                    <span class="status-icon st-crowded" style="font-size: 16px;"></span>
                     <span class="time-slot">12:00 - 14:00:</span> 
                     <span>Crowded</span>
                 </li>
                 <li>
-                    <span class="material-icons-outlined" style="color: #F44336; font-size: 16px;">change_history</span>
+                    <span class="status-icon st-full" style="font-size: 16px;"></span>
                     <span class="time-slot">19:00 - 20:00:</span> 
                     <span>Full</span>
                 </li>
                 <li>
-                    <span class="material-icons-outlined" style="color: #4CAF50; font-size: 16px;">star</span>
+                    <span class="status-icon st-empty" style="font-size: 16px;"></span>
                     <span class="time-slot">21:00 - 23:00:</span> 
                     <span>Empty</span>
                 </li>
@@ -112,7 +112,7 @@
         <section class="card notify-card" id="notify">
             <div class="notify-info">
                 <h3><span class="material-icons-outlined">notifications_none</span> Notify me</h3>
-                <p>when the kitchen is full</p>
+                <p>when the kitchen is empty</p>
             </div>
             <button id="notifyBtn" class="arrow-btn">→</button>
         </section>
@@ -123,24 +123,24 @@
     <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Today</h3>
     <ul class="timeline-list">
         <li>
-            <span class="material-icons-outlined" style="color: #10b981; font-size: 22px;">star_border</span> 
+            <span class="status-icon st-comfortable" style="font-size: 22px;"></span> 
             <span style="font-weight: 600; color: #000; width: 65px;">10:15</span> 
-            <span style="font-weight: 600; color: #10b981;">Comfortable</span>
+            <span class="st-comfortable" style="font-weight: 600;">Comfortable</span>
         </li>
         <li>
-            <span class="material-icons-outlined" style="color: #f43f5e; font-size: 22px;">radio_button_unchecked</span> 
+            <span class="status-icon st-overcrowded" style="font-size: 22px;"></span> 
             <span style="font-weight: 600; color: #000; width: 65px;">12:30</span> 
-            <span style="font-weight: 600; color: #f43f5e;">Overcrowded</span>
+            <span class="st-overcrowded" style="font-weight: 600;">Overcrowded</span>
         </li>
         <li>
-            <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+            <span class="status-icon st-full" style="font-size: 22px;"></span> 
             <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
-            <span style="font-weight: 600; color: #e11d48;">Full</span>
+            <span class="st-full" style="font-weight: 600;">Full</span>
         </li>
         <li>
-            <span class="material-icons-outlined" style="color: #f59e0b; font-size: 22px;">radio_button_unchecked</span> 
+            <span class="status-icon st-crowded" style="font-size: 22px;"></span> 
             <span style="font-weight: 600; color: #000; width: 65px;">22:10</span> 
-            <span style="font-weight: 600; color: #f59e0b;">Crowded</span>
+            <span class="st-crowded" style="font-weight: 600;">Crowded</span>
         </li>
     </ul>
 
@@ -149,28 +149,28 @@
         <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Yesterday</h3>
         <ul class="timeline-list">
             <li>
-                <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+                <span class="status-icon st-full" style="font-size: 22px;"></span> 
                 <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
-                <span style="font-weight: 600; color: #e11d48;">Full</span>
+                <span class="st-full" style="font-weight: 600;">Full</span>
             </li>
             <li>
-                <span class="material-icons-outlined" style="color: #10b981; font-size: 22px;">star_border</span> 
+                <span class="status-icon st-comfortable" style="font-size: 22px;"></span> 
                 <span style="font-weight: 600; color: #000; width: 65px;">21:15</span> 
-                <span style="font-weight: 600; color: #10b981;">Comfortable</span>
+                <span class="st-comfortable" style="font-weight: 600;">Comfortable</span>
             </li>
             <li>
-                <span class="material-icons-outlined" style="color: #f43f5e; font-size: 22px;">radio_button_unchecked</span> 
+                <span class="status-icon st-overcrowded" style="font-size: 22px;"></span> 
                 <span style="font-weight: 600; color: #000; width: 65px;">23:30</span> 
-                <span style="font-weight: 600; color: #f43f5e;">Overcrowded</span>
+                <span class="st-overcrowded" style="font-weight: 600;">Overcrowded</span>
             </li>
         </ul>
 
         <h3 style="color: #000; opacity: 0.35; font-size: 0.9rem; font-weight: 700; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Two days ago</h3>
         <ul class="timeline-list">
             <li>
-                <span class="material-icons-outlined" style="color: #e11d48; font-size: 22px;">change_history</span> 
+                <span class="status-icon st-full" style="font-size: 22px;"></span> 
                 <span style="font-weight: 600; color: #000; width: 65px;">18:30</span> 
-                <span style="font-weight: 600; color: #e11d48;">Full</span>
+                <span class="st-full" style="font-weight: 600;">Full</span>
             </li>
         </ul>
     </div>

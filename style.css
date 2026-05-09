@@ -1,3 +1,38 @@
+/* 1. Глобальні змінні кольорів */
+:root {
+    --color-empty: #4CAF50;
+    --color-comfortable: #10b981;
+    --color-crowded: #f59e0b;
+    --color-overcrowded: #f43f5e;
+    --color-full: #e11d48;
+}
+
+/* 2. Універсальні класи статусів */
+/* Тепер будь-який елемент з цим класом автоматично отримає потрібний колір */
+.st-empty { color: var(--color-empty) !important; }
+.st-comfortable { color: var(--color-comfortable) !important; }
+.st-crowded { color: var(--color-crowded) !important; }
+.st-overcrowded { color: var(--color-overcrowded) !important; }
+.st-full { color: var(--color-full) !important; }
+
+/* 3. Автоматизація іконок (Advanced) */
+/* Якщо ви хочете, щоб навіть іконка підставлялася автоматично, 
+   можна використати псевдоелементи ::before. 
+   Тоді в HTML не треба писати назву іконки текстом. */
+
+.status-icon::before {
+    font-family: 'Material Icons Outlined';
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 22px;
+}
+
+.status-icon.st-empty::before { content: "star"; }
+.status-icon.st-comfortable::before { content: "star_border"; }
+.status-icon.st-crowded::before { content: "radio_button_unchecked"; }
+.status-icon.st-overcrowded::before { content: "radio_button_unchecked"; }
+.status-icon.st-full::before { content: "change_history"; }
+
 /* Base settings */
 html { scroll-behavior: smooth; }
 body {
@@ -141,7 +176,7 @@ ul { list-style: none; padding: 0; margin: 0; }
     margin-bottom: 25px; /* Відступ до списку */
 }
 .status-current.green {
-    color: #2e7d32; /* Темно-зелений колір тексту і зірочки */
+    color: var(--color-comfortable); /* Темно-зелений колір тексту і зірочки */
 }
 .status-current .material-icons-outlined {
     font-size: 30px; /* Розмір маленької зірочки біля статусу */
