@@ -30,7 +30,7 @@
 .status-icon.st-empty::before { content: "star"; }
 .status-icon.st-comfortable::before { content: "star_border"; }
 .status-icon.st-crowded::before { content: "radio_button_unchecked"; }
-.status-icon.st-overcrowded::before { content: "radio_button_unchecked"; }
+.status-icon.st-overcrowded::before { content: "radio_button_checked"; }
 .status-icon.st-full::before { content: "change_history"; }
 
 /* Base settings */
