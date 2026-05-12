@@ -93,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (olderHistory.style.display === 'none') {
                 // If it was hidden - show it
                 olderHistory.style.display = 'block';
-                toggleText.textContent = 'Weniger Anzeigen'; // Change text to "Show less"
+                toggleText.textContent = 'Show less'; // Change text to "Show less"
                 toggleIcon.textContent = 'expand_less';      // Change arrow pointing up
             } else {
                 // If it was open - hide it
                 olderHistory.style.display = 'none';
-                toggleText.textContent = 'Mehr Anzeigen';    // Return text to "Show more"
+                toggleText.textContent = 'Show more';    // Return text to "Show more"
                 toggleIcon.textContent = 'expand_more';      // Return arrow pointing down
             }
         });
